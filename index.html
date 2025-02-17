@@ -27,7 +27,19 @@
         }
 
         h1 {
-            color: #1a73e8;
+            color: #003477;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: #4d7fc0;
+            text-align: center;
+            margin-bottom: 1px;
+        }
+
+        h4 {
+            color: #a5bfe0;
             text-align: center;
             margin-bottom: 30px;
         }
@@ -117,6 +129,8 @@
 <body>
     <div class="container">
         <h1>Cadastro do Auxiliar de Apoio à Inclusão</h1>
+        <h3>Secretaria Municipal de Educação, Esporte e Lazer</h3>
+        <h4>Tabocas do Brejo Velho - Bahia</h4>
         
         <form id="cadastroForm">
             <!-- Seção 1: Informações Pessoais -->
@@ -124,11 +138,11 @@
                 <h2>Informações Pessoais</h2>
                 <div class="form-group">
                     <label class="required">Seu nome completo:</label>
-                    <input type="text" name="nome" required>
+                    <input type="text" name="nome" placeholder="Digite aqui o seu nome completo" required>
                 </div>
                 <div class="form-group">
                     <label class="required">Seu nº de CPF:</label>
-                    <input type="text" name="cpf" required>
+                    <input type="text" name="cpf" placeholder="Digite apenas os números do seu CPF, sem pontos ou traços" required>
                 </div>
                 <div class="form-group">
                   <label class="required">Nome da escola onde irá atuar:</label>
@@ -158,7 +172,7 @@
                         <option value="Manhã">Manhã</option>
                         <option value="Tarde">Tarde</option>
                         <option value="Noite">Noite</option>
-                        <option value="Diurno (Dois Turnos)">Diurno</option>
+                        <option value="Diurno">Diurno (Dois Turnos)</option>
                     </select>
                 </div>
             </div>
@@ -177,7 +191,7 @@
                 <div class="form-group">
                     <label class="required">Série/Ano em que seu o aluno vai estudar:</label>
                     <select name="serie" required>
-                        <option value="">Selecione</option>
+                        <option value="">Selecione a série</option>
                         <option value="Pré 1">Pré 1</option>
                         <option value="Pré 2">Pré 2</option>
                         <option value="1º Ano">1º Ano</option>
@@ -202,14 +216,14 @@
             <div class="category">
                 <h2>Experiência Profissional</h2>
                 <div class="form-group">
-                  <label class="required">Você já trabalhou como Auxuliar de Apoio à Inclusão?</label>
+                  <label class="required">Você já trabalhou como Auxiliar de Apoio à Inclusão?</label>
                   <select name="experiencia" required>
                       <option value="">Selecione</option>
                       <option value="Sim">Sim</option>
                       <option value="Não">Não</option>
                   </select>
               </div>                
-                <div class="form-group hidden" id="experienciaDesc">
+                <div class="form-group" id="experienciaDesc">
                     <label>Se sim, descreva aqui como foi a sua experiência:</label>
                     <textarea name="descricao_experiencia" rows="4"></textarea>
                 </div>
@@ -231,14 +245,6 @@
     </div>
 
     <script>
-        // Mostrar/ocultar campo de experiência
-        document.querySelectorAll('input[name="experiencia"]').forEach(input => {
-            input.addEventListener('change', (e) => {
-                const experienciaDesc = document.getElementById('experienciaDesc');
-                experienciaDesc.classList.toggle('hidden', e.target.value !== 'Sim');
-            });
-        });
-
         // Envio do formulário
         document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
             e.preventDefault();
